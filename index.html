@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1 class="app-title">Task Manager</h1>
+    </header>
+
+    <main class="app-main">
+      <section class="form-section">
+        <button class="form-toggle" id="formToggle" aria-expanded="true">
+          <span class="form-toggle-label">Add Task</span>
+          <span class="form-toggle-icon" aria-hidden="true">▲</span>
+        </button>
+        <div class="form-collapse" id="formCollapse">
+          <form class="task-form" id="taskForm" novalidate>
+            <div class="form-row">
+              <label class="form-label" for="taskTitle">
+                Title <span class="required" aria-hidden="true">*</span>
+              </label>
+              <input
+                class="form-input"
+                id="taskTitle"
+                type="text"
+                placeholder="What needs to be done?"
+                required
+              />
+              <span class="form-error" id="titleError" role="alert"></span>
+            </div>
+
+            <div class="form-row">
+              <label class="form-label" for="taskDesc">Description</label>
+              <textarea
+                class="form-input form-textarea"
+                id="taskDesc"
+                placeholder="Optional details…"
+                rows="2"
+              ></textarea>
+            </div>
+
+            <div class="form-row-inline">
+              <div class="form-row">
+                <label class="form-label" for="taskDue">Due Date</label>
+                <input class="form-input" id="taskDue" type="date" />
+              </div>
+              <div class="form-row">
+                <label class="form-label" for="taskPriority">Priority</label>
+                <select class="form-input form-select" id="taskPriority">
+                  <option value="Low">Low</option>
+                  <option value="Medium" selected>Medium</option>
+                  <option value="High">High</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Add Task</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="filter-section" id="filterSection">
+        <!-- TaskFilter renders here -->
+      </section>
+
+      <section class="list-section">
+        <div class="task-list" id="taskList">
+          <!-- TaskList renders here -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
